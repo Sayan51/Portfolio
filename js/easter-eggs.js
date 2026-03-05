@@ -5,7 +5,7 @@ const EasterEggs = (function () {
     let clickCount = 0;
     let clickTimer = null;
     let konamiCode = [];
-    const konamiSequence = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'KeyB', 'KeyA'];
+    const konamiSequence = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
     let idleTimer = null;
     let idleAssistant = null;
     let idleFactInterval = null;
@@ -75,7 +75,7 @@ const EasterEggs = (function () {
     // === EASTER EGG 2: Konami Code ===
     function initKonamiCode() {
         document.addEventListener('keydown', function (e) {
-            konamiCode.push(e.code);
+            konamiCode.push(e.key);
             if (konamiCode.length > konamiSequence.length) konamiCode.shift();
 
             if (konamiCode.join(',') === konamiSequence.join(',')) {
