@@ -30,8 +30,8 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // 3. Init Three.js background
-    ParticleGalaxy.init();
+    // 3. Init multi-layered background
+    BackgroundManager.init();
 
     // 4. Init custom cursor
     CustomCursor.init();

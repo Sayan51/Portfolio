@@ -114,8 +114,8 @@ const BootSequence = (function () {
         setTimeout(() => {
             overlay.remove();
             // Explode particles
-            if (typeof ParticleGalaxy !== 'undefined') {
-                ParticleGalaxy.explodeFromCenter();
+            if (typeof BackgroundManager !== 'undefined') {
+                BackgroundManager.explodeParticles();
             }
             if (onComplete) onComplete();
         }, 500);
