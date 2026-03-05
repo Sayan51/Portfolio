@@ -1,0 +1,76 @@
+/* ============================================
+   CURSOR.CSS — Custom Cursor Styles
+   ============================================ */
+
+.cursor-inner {
+    position: fixed;
+    width: var(--cursor-size-inner);
+    height: var(--cursor-size-inner);
+    background: var(--accent-cyan);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: var(--z-cursor);
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s ease, background 0.2s ease, width 0.2s ease, height 0.2s ease;
+    will-change: transform;
+    mix-blend-mode: screen;
+}
+
+.cursor-outer {
+    position: fixed;
+    width: var(--cursor-size-outer);
+    height: var(--cursor-size-outer);
+    border: 2px solid var(--accent-purple);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: var(--z-cursor);
+    transform: translate(-50%, -50%);
+    transition: width 0.3s ease, height 0.3s ease, border-color 0.3s ease;
+    will-change: transform;
+}
+
+/* Hover on interactive elements */
+.cursor-hover .cursor-inner {
+    width: 12px;
+    height: 12px;
+    background: #fff;
+}
+
+.cursor-hover .cursor-outer {
+    width: 50px;
+    height: 50px;
+    border-color: #fff;
+    opacity: 0.5;
+}
+
+/* Click effect */
+.cursor-click .cursor-inner {
+    background: var(--accent-red);
+    transform: translate(-50%, -50%) scale(0.8);
+}
+
+.cursor-click .cursor-outer {
+    border-color: var(--accent-red);
+    transform: translate(-50%, -50%) scale(0.8);
+}
+
+/* Text hover */
+.cursor-text .cursor-inner {
+    width: 3px;
+    height: 24px;
+    border-radius: 2px;
+}
+
+.cursor-text .cursor-outer {
+    opacity: 0;
+}
+
+/* Hide on touch devices */
+.touch-device .cursor-inner,
+.touch-device .cursor-outer {
+    display: none !important;
+}
+
+.touch-device * {
+    cursor: auto !important;
+}

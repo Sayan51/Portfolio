@@ -1,0 +1,149 @@
+/* ============================================
+   EDUCATION.CSS — Education Section
+   ============================================ */
+
+.education-section {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    display: flex;
+    align-items: center;
+}
+
+.education-card {
+    max-width: 700px;
+    margin: 0 auto;
+    background: var(--bg-glass);
+    backdrop-filter: blur(var(--glass-blur));
+    border: var(--glass-border);
+    border-radius: var(--radius-lg);
+    padding: 50px var(--card-padding);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.education-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -200%;
+    width: 400%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 240, 255, 0.03), transparent);
+    animation: holographic-shimmer 6s linear infinite;
+}
+
+/* Holographic seal */
+.edu-seal {
+    margin-bottom: var(--gap-lg);
+}
+
+.seal-geometry {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+}
+
+.seal-ring {
+    position: absolute;
+    inset: 0;
+    border: 1px solid rgba(0, 240, 255, 0.3);
+    border-radius: 50%;
+}
+
+.seal-ring:nth-child(1) {
+    transform: rotate(0deg);
+    animation: spin 8s linear infinite;
+}
+
+.seal-ring:nth-child(2) {
+    inset: 8px;
+    transform: rotate(45deg);
+    border-color: rgba(180, 0, 255, 0.3);
+    animation: spin 6s linear infinite reverse;
+}
+
+.seal-ring:nth-child(3) {
+    inset: 16px;
+    transform: rotate(90deg);
+    animation: spin 10s linear infinite;
+}
+
+.seal-core {
+    position: absolute;
+    inset: 24px;
+    background: var(--gradient-main);
+    border-radius: 50%;
+    opacity: 0.3;
+}
+
+.edu-institution {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+}
+
+.edu-location {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: var(--gap-md);
+}
+
+.edu-degree {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    background: var(--gradient-main);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 4px;
+}
+
+.edu-year {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: var(--gap-lg);
+}
+
+.edu-coursework {
+    margin-top: var(--gap-lg);
+    padding-top: var(--gap-lg);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.edu-coursework-title {
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: var(--gap-md);
+}
+
+.coursework-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--gap-sm);
+    justify-content: center;
+}
+
+.course-tag {
+    padding: 6px 16px;
+    font-family: var(--font-code);
+    font-size: 0.75rem;
+    border: 1px solid rgba(0, 240, 255, 0.15);
+    border-radius: 20px;
+    color: var(--accent-cyan);
+    background: rgba(0, 240, 255, 0.03);
+    animation: tag-float 3s ease-in-out infinite;
+}
+
+.course-tag:nth-child(odd) {
+    animation-delay: -1.5s;
+}
+
+.course-tag:nth-child(3n) {
+    animation-delay: -0.8s;
+}

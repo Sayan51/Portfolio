@@ -1,0 +1,169 @@
+/* ============================================
+   PROJECTS.CSS — Projects Section Styles
+   ============================================ */
+
+.projects-section {
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.project-cards {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-lg);
+}
+
+.project-card {
+    background: var(--bg-glass);
+    backdrop-filter: blur(var(--glass-blur));
+    border: var(--glass-border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    transition: border-color var(--transition-normal), box-shadow var(--transition-normal);
+    cursor: pointer;
+}
+
+.project-card:hover {
+    border-color: rgba(0, 240, 255, 0.3);
+}
+
+.project-card.expanded {
+    border-color: rgba(0, 240, 255, 0.5);
+    box-shadow: 0 0 40px rgba(0, 240, 255, 0.1);
+}
+
+.project-card-header {
+    padding: var(--card-padding);
+    position: relative;
+}
+
+.project-status {
+    display: flex;
+    align-items: center;
+    gap: var(--gap-sm);
+    margin-bottom: var(--gap-md);
+}
+
+.status-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.status-dot.completed {
+    background: var(--accent-green);
+    animation: status-pulse 2s infinite;
+}
+
+.status-dot.active {
+    background: var(--accent-cyan);
+    animation: status-pulse 1.5s infinite;
+}
+
+.status-text {
+    font-family: var(--font-code);
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    color: var(--accent-green);
+    text-transform: uppercase;
+}
+
+.project-name {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    color: var(--text-primary);
+    margin-bottom: var(--gap-md);
+    letter-spacing: 1px;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--gap-sm);
+    margin-bottom: var(--gap-md);
+}
+
+.project-tag {
+    padding: 3px 12px;
+    font-family: var(--font-code);
+    font-size: 0.7rem;
+    border: 1px solid rgba(180, 0, 255, 0.3);
+    border-radius: 20px;
+    color: var(--accent-purple);
+    background: rgba(180, 0, 255, 0.05);
+}
+
+.project-summary {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.project-expand-icon {
+    position: absolute;
+    top: var(--card-padding);
+    right: var(--card-padding);
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    transition: transform var(--transition-normal);
+}
+
+.project-card.expanded .project-expand-icon {
+    transform: rotate(180deg);
+}
+
+/* Expandable details */
+.project-card-details {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    padding: 0 var(--card-padding);
+}
+
+.project-card.expanded .project-card-details {
+    max-height: 500px;
+    padding-bottom: var(--card-padding);
+}
+
+.project-details-list {
+    list-style: none;
+    margin-bottom: var(--gap-lg);
+}
+
+.project-details-list li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: var(--gap-sm);
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.project-details-list li::before {
+    content: '▹';
+    position: absolute;
+    left: 0;
+    color: var(--accent-cyan);
+}
+
+.project-github-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--gap-sm);
+    padding: 10px 24px;
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border: 1px solid var(--accent-cyan);
+    border-radius: var(--radius-sm);
+    color: var(--accent-cyan);
+    transition: all var(--transition-normal);
+}
+
+.project-github-btn:hover {
+    background: rgba(0, 240, 255, 0.1);
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+    color: #fff;
+}

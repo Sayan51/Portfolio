@@ -1,0 +1,58 @@
+/* ============================================
+   FOOTER.CSS — Footer Styles
+   ============================================ */
+
+.footer-section {
+    padding: 40px var(--card-padding);
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    position: relative;
+    z-index: var(--z-content);
+}
+
+.footer-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.footer-credit {
+    font-family: var(--font-code);
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+}
+
+.footer-tagline {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: var(--gap-md);
+    opacity: 0.7;
+}
+
+.footer-heart {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: var(--gap-md);
+}
+
+.heartbeat {
+    display: inline-block;
+    animation: heartbeat 1.5s ease infinite;
+}
+
+.footer-socials {
+    display: flex;
+    justify-content: center;
+    gap: var(--gap-lg);
+}
+
+.footer-social-icon {
+    color: var(--text-muted);
+    transition: color var(--transition-normal), transform var(--transition-normal), filter var(--transition-normal);
+}
+
+.footer-social-icon:hover {
+    color: var(--accent-cyan);
+    transform: translateY(-3px);
+    filter: drop-shadow(0 0 10px rgba(0, 240, 255, 0.5));
+}

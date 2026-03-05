@@ -1,0 +1,106 @@
+/* ============================================
+   LEADERSHIP.CSS — Leadership / Command Deck
+   ============================================ */
+
+.leadership-section {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Radar background */
+.radar-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 500px;
+    pointer-events: none;
+}
+
+.radar-ring {
+    position: absolute;
+    border: 1px solid rgba(0, 240, 255, 0.08);
+    border-radius: 50%;
+}
+
+.radar-ring:nth-child(1) {
+    inset: 0;
+    animation: radar-pulse 4s ease-out infinite;
+}
+
+.radar-ring:nth-child(2) {
+    inset: 60px;
+    animation: radar-pulse 4s ease-out infinite 1.3s;
+}
+
+.radar-ring:nth-child(3) {
+    inset: 120px;
+    animation: radar-pulse 4s ease-out infinite 2.6s;
+}
+
+.radar-sweep {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50%;
+    height: 2px;
+    background: linear-gradient(to right, transparent, var(--accent-cyan));
+    transform-origin: left center;
+    animation: radar-sweep 4s linear infinite;
+    opacity: 0.3;
+}
+
+/* Leadership cards */
+.leadership-cards {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--gap-lg);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.leadership-card {
+    background: var(--bg-glass);
+    backdrop-filter: blur(var(--glass-blur));
+    border: var(--glass-border);
+    border-radius: var(--radius-md);
+    padding: var(--card-padding);
+    text-align: center;
+    transition: all var(--transition-normal);
+    position: relative;
+    overflow: hidden;
+}
+
+.leadership-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -200%;
+    width: 400%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.03), transparent);
+    animation: holographic-shimmer 5s linear infinite;
+}
+
+.leadership-card:hover {
+    border-color: rgba(0, 240, 255, 0.3);
+    box-shadow: 0 0 30px rgba(0, 240, 255, 0.1);
+    transform: translateY(-5px);
+}
+
+.leadership-icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: var(--gap-md);
+}
+
+.leadership-card p {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    line-height: 1.6;
+}

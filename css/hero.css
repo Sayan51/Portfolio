@@ -1,0 +1,332 @@
+/* ============================================
+   HERO.CSS — Hero / Landing Section
+   ============================================ */
+
+.hero-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+/* Social orbit */
+.hero-social-orbit {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 280px;
+    height: 280px;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+.orbit-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 40px;
+    height: 40px;
+    margin: -20px 0 0 -20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-cyan);
+    background: var(--bg-glass);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 240, 255, 0.2);
+    border-radius: 50%;
+    pointer-events: all;
+    transition: background var(--transition-fast), color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.orbit-icon:hover {
+    background: rgba(0, 240, 255, 0.15);
+    color: #fff;
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
+}
+
+.orbit-1 {
+    --orbit-radius: 140px;
+    animation: orbit 12s linear infinite;
+}
+
+.orbit-2 {
+    --orbit-radius: 140px;
+    animation: orbit 12s linear infinite;
+    animation-delay: -4s;
+}
+
+.orbit-3 {
+    --orbit-radius: 140px;
+    animation: orbit 12s linear infinite;
+    animation-delay: -8s;
+}
+
+/* Glitch text */
+.hero-name {
+    margin-bottom: var(--gap-lg);
+    position: relative;
+}
+
+.glitch {
+    font-family: var(--font-heading);
+    font-weight: 900;
+    font-size: clamp(2rem, 6vw, 5rem);
+    color: var(--text-primary);
+    position: relative;
+    display: inline-block;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+.glitch::before,
+.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.glitch::before {
+    color: var(--accent-cyan);
+    z-index: -1;
+    animation: glitch-1 4s infinite linear alternate-reverse;
+    animation-play-state: paused;
+}
+
+.glitch::after {
+    color: var(--accent-purple);
+    z-index: -2;
+    animation: glitch-2 4s infinite linear alternate-reverse;
+    animation-play-state: paused;
+}
+
+/* Periodic glitch trigger */
+.glitch.glitching::before,
+.glitch.glitching::after {
+    animation-play-state: running;
+}
+
+.glitch:hover::before,
+.glitch:hover::after {
+    animation-play-state: running;
+}
+
+/* Typed.js container */
+.hero-typed-container {
+    font-family: var(--font-code);
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    color: var(--accent-cyan);
+    margin-bottom: var(--gap-lg);
+    min-height: 40px;
+}
+
+.typed-prefix {
+    color: var(--accent-green);
+}
+
+.typed-cursor {
+    color: var(--accent-cyan);
+}
+
+/* Badge */
+.hero-badge {
+    display: inline-block;
+    margin-bottom: var(--gap-xl);
+}
+
+.badge-inner {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--gap-sm);
+    padding: 10px 24px;
+    background: var(--bg-glass);
+    backdrop-filter: blur(var(--glass-blur));
+    border: var(--glass-border);
+    border-radius: 50px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--text-secondary);
+    position: relative;
+    overflow: hidden;
+}
+
+.badge-inner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -200%;
+    width: 400%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 240, 255, 0.08), transparent);
+    animation: holographic-shimmer 4s linear infinite;
+}
+
+/* Action buttons */
+.hero-actions {
+    display: flex;
+    gap: var(--gap-lg);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.hero-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--gap-sm);
+    padding: 14px 32px;
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-normal);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.hero-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(0, 240, 255, 0.1), rgba(180, 0, 255, 0.1));
+    opacity: 0;
+    transition: opacity var(--transition-normal);
+}
+
+.hero-btn:hover::before {
+    opacity: 1;
+}
+
+.hero-btn-primary {
+    background: var(--bg-glass);
+    backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid rgba(0, 240, 255, 0.3);
+    color: var(--accent-cyan);
+}
+
+.hero-btn-primary:hover {
+    border-color: var(--accent-cyan);
+    box-shadow: 0 0 30px rgba(0, 240, 255, 0.3);
+    color: #fff;
+}
+
+.hero-btn-secondary {
+    background: var(--bg-glass);
+    backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid rgba(180, 0, 255, 0.3);
+    color: var(--accent-purple);
+}
+
+.hero-btn-secondary:hover {
+    border-color: var(--accent-purple);
+    box-shadow: 0 0 30px rgba(180, 0, 255, 0.3);
+    color: #fff;
+}
+
+.btn-icon {
+    font-size: 1.2rem;
+}
+
+/* Scroll indicator */
+.scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.scroll-arrow {
+    width: 24px;
+    height: 24px;
+    border-right: 2px solid var(--accent-cyan);
+    border-bottom: 2px solid var(--accent-cyan);
+    transform: rotate(45deg);
+    animation: scroll-down 2s infinite;
+    opacity: 0.5;
+}
+
+/* Boot overlay */
+#boot-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    z-index: var(--z-boot);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.boot-container {
+    text-align: left;
+    max-width: 600px;
+    width: 90%;
+}
+
+.boot-text-container {
+    font-family: var(--font-code);
+    font-size: 1rem;
+    color: var(--accent-cyan);
+}
+
+.boot-text-container p {
+    margin-bottom: 8px;
+    white-space: pre-wrap;
+}
+
+.boot-skip {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-family: var(--font-code);
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: color var(--transition-fast);
+}
+
+.boot-skip:hover {
+    color: var(--accent-cyan);
+}
+
+.boot-progress-bar {
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    margin: 8px 0;
+    overflow: hidden;
+}
+
+.boot-progress-fill {
+    height: 100%;
+    width: 0%;
+    background: var(--gradient-main);
+    border-radius: 2px;
+    transition: width 0.05s linear;
+}
+
+.boot-system-online {
+    font-family: var(--font-heading);
+    font-size: clamp(1.5rem, 4vw, 3rem);
+    color: var(--accent-green);
+    text-align: center;
+    text-shadow: 0 0 20px rgba(0, 255, 136, 0.5), 0 0 40px rgba(0, 255, 136, 0.3);
+    animation: pulse-glow 1s ease infinite;
+}

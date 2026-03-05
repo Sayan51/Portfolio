@@ -1,0 +1,123 @@
+/* ============================================
+   SKILLS.CSS — Skills Section Styles
+   ============================================ */
+
+.skills-section {
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+/* 3D Skill Sphere */
+.skill-sphere-container {
+    width: 100%;
+    max-width: 550px;
+    height: 500px;
+    margin: 0 auto var(--gap-xl);
+    position: relative;
+    perspective: 1000px;
+    cursor: grab;
+}
+
+.skill-sphere-container:active {
+    cursor: grabbing;
+}
+
+.skill-sphere-tag {
+    position: absolute;
+    font-family: var(--font-code);
+    font-size: 0.85rem;
+    color: var(--accent-cyan);
+    white-space: nowrap;
+    padding: 4px 10px;
+    border-radius: 4px;
+    transition: text-shadow 0.2s ease, transform 0.2s ease;
+    cursor: pointer;
+    user-select: none;
+    will-change: transform, opacity, font-size;
+}
+
+.skill-sphere-tag:hover {
+    text-shadow: 0 0 15px var(--accent-cyan), 0 0 30px var(--accent-cyan);
+    transform: scale(1.3) !important;
+    z-index: 10;
+}
+
+.skill-tooltip {
+    position: absolute;
+    background: var(--bg-secondary);
+    border: 1px solid var(--accent-cyan);
+    border-radius: var(--radius-sm);
+    padding: 6px 12px;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    color: var(--text-primary);
+    pointer-events: none;
+    z-index: 100;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.skill-tooltip.visible {
+    opacity: 1;
+}
+
+/* Skill category cards */
+.skill-categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--gap-lg);
+}
+
+.skill-card {
+    background: var(--bg-glass);
+    backdrop-filter: blur(var(--glass-blur));
+    border: var(--glass-border);
+    border-radius: var(--radius-md);
+    padding: var(--card-padding);
+    transition: border-color var(--transition-normal), box-shadow var(--transition-normal);
+    transform-style: preserve-3d;
+}
+
+.skill-card:hover {
+    border-color: rgba(0, 240, 255, 0.3);
+    box-shadow: 0 0 30px rgba(0, 240, 255, 0.1);
+}
+
+.skill-card-icon {
+    font-size: 2rem;
+    margin-bottom: var(--gap-md);
+}
+
+.skill-card-title {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    color: var(--text-primary);
+    margin-bottom: var(--gap-md);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.skill-card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--gap-sm);
+}
+
+.skill-tag {
+    display: inline-block;
+    padding: 4px 12px;
+    font-family: var(--font-code);
+    font-size: 0.75rem;
+    border: 1px solid rgba(0, 240, 255, 0.2);
+    border-radius: 20px;
+    color: var(--accent-cyan);
+    background: rgba(0, 240, 255, 0.05);
+    transition: all var(--transition-fast);
+}
+
+.skill-tag:hover {
+    background: rgba(0, 240, 255, 0.15);
+    border-color: var(--accent-cyan);
+    box-shadow: 0 0 10px rgba(0, 240, 255, 0.2);
+}
