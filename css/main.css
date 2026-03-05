@@ -255,6 +255,14 @@ a:hover {
         display: none !important;
     }
 
+    body {
+        background: transparent !important;
+    }
+
+    html {
+        background: #0a0a0f;
+    }
+
     body::before {
         content: '';
         position: fixed;
@@ -269,7 +277,6 @@ a:hover {
             radial-gradient(ellipse at 50% 85%, rgba(0, 240, 255, 0.15) 0%, transparent 50%),
             radial-gradient(ellipse at 70% 60%, rgba(180, 0, 255, 0.1) 0%, transparent 40%),
             linear-gradient(160deg, #0a0a1a 0%, #0d0820 30%, #0a0a1f 60%, #12081e 100%);
-        background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, 400% 400%;
         animation: gradient-shift 15s ease infinite;
     }
 }
